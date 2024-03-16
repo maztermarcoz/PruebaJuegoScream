@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpjvv6dw5o3g4"]
+
+[ext_resource type="Script" path="res://Particules/rain.gd" id="1_2japl"]
+[ext_resource type="Texture2D" uid="uid://bprxeasm8kipp" path="res://Particules/rain_drop.png" id="2_ctgop"]
+
+[sub_resource type="Curve" id="Curve_5v7gc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.381132), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Rain" type="Node2D"]
+script = ExtResource("1_2japl")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 300
+texture = ExtResource("2_ctgop")
+emission_shape = 3
+emission_rect_extents = Vector2(150, 1)
+gravity = Vector2(-200, 980)
+scale_amount_min = 0.02
+scale_amount_max = 0.05
+scale_amount_curve = SubResource("Curve_5v7gc")
+color = Color(0.133333, 0.866667, 1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, 94)
+zoom = Vector2(3, 3)

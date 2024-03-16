@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cby6yai1mnuch"]
+
+[ext_resource type="Script" path="res://Particules/fire.gd" id="1_qrekq"]
+
+[sub_resource type="Curve" id="Curve_5hk45"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.184906), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_p65cq"]
+offsets = PackedFloat32Array(0, 0.193182, 0.494318, 1)
+colors = PackedColorArray(1, 0.0588235, 0.188235, 0.4, 0.84795, 0.79755, 0, 1, 0.831373, 0.388235, 0, 1, 0.776471, 0.141176, 0, 0.494118)
+
+[node name="Fire" type="Node2D"]
+script = ExtResource("1_qrekq")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 2000
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(0, -600)
+radial_accel_min = -50.0
+radial_accel_max = -40.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_5hk45")
+color = Color(1, 1, 0.0941176, 1)
+color_ramp = SubResource("Gradient_p65cq")
