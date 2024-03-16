@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsj6qioy2fhib"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_5qcn5"]
+[ext_resource type="Texture2D" uid="uid://bq6b6eb5idacl" path="res://Player/male-character-riding-a-bicycle-in-sport-clothing (1).png" id="2_epsqo"]
+[ext_resource type="Script" path="res://Player/MovimientoImagen.gd" id="3_pv7wg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_flokw"]
+radius = 270.0
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_5qcn5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_flokw")
+
+[node name="SpriteImagen2D" type="Sprite2D" parent="."]
+position = Vector2(4, -18)
+texture = ExtResource("2_epsqo")
+offset = Vector2(0, -8)
+script = ExtResource("3_pv7wg")
